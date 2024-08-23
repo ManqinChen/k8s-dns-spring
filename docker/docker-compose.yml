@@ -1,0 +1,80 @@
+# 如果有改动请先删除镜像再运行
+
+version : '3'
+name: k8s-test
+services:
+
+  k8ss-server1:
+    container_name: k8s-test-service1
+    build:
+      context: .
+      dockerfile: service1-dockerfile
+    ports:
+      - "8081:8081"
+    privileged: true
+    volumes:
+      - ./service1:/home/service1/log
+      - ./service1:/home/service1/uploadPath
+
+  k8ss-server2:
+    container_name: k8s-test-service2
+    build:
+      context: .
+      dockerfile: service2-dockerfile
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./service1:/home/service2/log
+      - ./service1:/home/service2/uploadPath
+
+#  joolun-redis:
+#    container_name: myredis
+#    image: redis
+#    build:
+#      context: .
+#      dockerfile: redis-dockerfile
+#    ports:
+#      - "6379:6379"
+#    volumes:
+#      - ./conf/redis.conf:/home/joolun/redis/redis.conf
+#      - ./redis/data:/data
+#    command: redis-server /home/joolun/redis/redis.conf
+
+#  joolun-nginx:
+#    container_name: joolun-nginx
+#    image: nginx
+#    build:
+#      context: .
+#      dockerfile: nginx-dockerfile
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - /usr/nginx/dist:/home/joolun/projects/joolun-ui
+#      - /usr/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+#      - /usr/nginx/logs:/var/log/nginx
+#      - /usr/nginx/conf.d:/etc/nginx/conf.d
+#
+#    depends_on:
+#      - joolun-server
+#    links:
+#      - joolun-server
+
+
+#  joolun-server:
+#    container_name: mall-mini-service
+#    build:
+#      context: .
+#      dockerfile: joolun-dockerfile
+#    ports:
+#      - "7500:7500"
+#    environment:
+#      - TZ=Asia/Shanghai
+#    volumes:
+#      - ./joolun/logs:/home/joolun/logs
+#      - ./joolun/uploadPath:/home/joolun/uploadPath
+#    depends_on:
+#      - joolun-mysql
+#      - joolun-redis
+#    links:
+#      - joolun-mysql
+#      - joolun-redis

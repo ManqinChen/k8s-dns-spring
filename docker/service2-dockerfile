@@ -1,0 +1,10 @@
+FROM bitnami/java:21
+VOLUME /home/service2
+# 创建目录
+RUN mkdir -p /home/service2
+WORKDIR /home/service2
+ARG JAR_FILE=./jar/service2.jar
+COPY ${JAR_FILE} /home/service2/app.jar
+ENTRYPOINT ["java","-jar","/home/service2/app.jar"]
+
+
