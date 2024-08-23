@@ -1,4 +1,5 @@
 FROM bitnami/java:21
+MAINTAINER "Manqin.Chen@asiapay.com"
 VOLUME /home/service1
 # 创建目录
 RUN mkdir -p /home/service1

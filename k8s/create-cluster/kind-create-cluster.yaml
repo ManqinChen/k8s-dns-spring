@@ -22,3 +22,5 @@ nodes:
         # optional: set the protocol to one of TCP, UDP, SCTP.
         # TCP is the default
         protocol: TCP
+# 工作节点
+#  - role: worker

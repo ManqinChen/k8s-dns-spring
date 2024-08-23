@@ -8,6 +8,10 @@
     <artifactId>kubernetes-services</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <description>
+        这是一个 k8s dns 的示例项目，
+        主要演示 springboot 服务端如何通过 k8s 自带的 dns 来实现服务间通信与负载均衡
+    </description>
     <modules>
         <module>service1</module>
         <module>service2</module>

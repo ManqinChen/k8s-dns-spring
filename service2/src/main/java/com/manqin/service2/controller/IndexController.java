@@ -1,4 +1,4 @@
-package com.manqin.service1.controller;
+package com.manqin.service2.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
